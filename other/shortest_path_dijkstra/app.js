@@ -3,15 +3,17 @@
  * @Date:   2016-04-03T18:26:49+10:00
  * @Email:  root@guiguan.net
  * @Last modified by:   guiguan
- * @Last modified time: 2016-04-06T03:54:19+10:00
+ * @Last modified time: 2016-04-06T16:48:46+10:00
  */
 
 
 
 'use strict';
 
-// init cytoscape lib
 var cytoscape = require('cytoscape');
+var pq = require('../pairing_heap');
+
+// init cytoscape lib
 var cy = cytoscape({
   container: document.getElementById('cy'),
 
@@ -55,7 +57,7 @@ function randomIntBetweenInclusive(a, b) {
  * Using modern Fisher-Yates to sample from provided collection, which alters the
  * collection in place. This algorithm performs better with smaller numSample.
  */
-function sampleInPlace(collection, numSample) {
+function randSampleInPlace(collection, numSample) {
   var n = collection.length;
   var s = Math.min(n, numSample);
   for (var i = n - 1; i >= n - s; i--) {
@@ -75,7 +77,7 @@ function sampleInPlace(collection, numSample) {
  * collection, which doesn't alter the collection. This algorithm performs better
  * with larger numSample.
  */
-function sampleOutPlace(collection, numSample) {
+function randSampleOutPlace(collection, numSample) {
   var n = collection.length;
   var s = Math.min(n, numSample);
   var result = new Array(s);
@@ -136,7 +138,7 @@ function generateRandomGraph(cy, numNode, avgDegree, weightMin, weightMax) {
 
   // add random edges until avgDegree is satisfied
   while (nodes.totalDegree() / nodes.length < avgDegree) {
-    var temp = sampleInPlace(nodes, 2);
+    var temp = randSampleInPlace(nodes, 2);
     if (temp[0].edgesWith(temp[1]).length === 0) {
       cy.add({
         group: "edges",
@@ -224,17 +226,25 @@ var options = {
 };
 cy.layout(options);
 
-var bfs = cy.elements().bfs('#n0', function() {}, false);
+/**
+ * Find shortest path between source and target node using Dijkstra algorithm
+ * and pairing heap as priority queue
+ */
+function findShortestPath(cy, source, target) {
 
-var i = 0;
-var highlightNextEle = function() {
-  if (i < bfs.path.length) {
-    bfs.path[i].addClass('highlighted');
+}
 
-    i++;
-    setTimeout(highlightNextEle, 1000);
-  }
-};
-
-// kick off first highlight
-highlightNextEle();
+// var bfs = cy.elements().bfs('#n0', function() {}, false);
+//
+// var i = 0;
+// var highlightNextEle = function() {
+//   if (i < bfs.path.length) {
+//     bfs.path[i].addClass('highlighted');
+//
+//     i++;
+//     setTimeout(highlightNextEle, 1000);
+//   }
+// };
+//
+// // kick off first highlight
+// highlightNextEle();

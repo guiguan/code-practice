@@ -1,0 +1,11 @@
+# @Author: Guan Gui <guiguan>
+# @Date:   2016-04-06T16:43:56+10:00
+# @Email:  root@guiguan.net
+# @Last modified by:   guiguan
+# @Last modified time: 2016-04-06T17:33:11+10:00
+
+
+
+[submodule "other/pairing_heap"]
+	path = other/pairing_heap
+	url = git@github.com:guiguan/pairing-heap.git
