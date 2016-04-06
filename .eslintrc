@@ -1,0 +1,15 @@
+# @Author: Guan Gui <guiguan>
+# @Date:   2016-04-05T19:07:56+10:00
+# @Email:  root@guiguan.net
+# @Last modified by:   guiguan
+# @Last modified time: 2016-04-05T22:12:38+10:00
+
+
+
+{
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    }
+}

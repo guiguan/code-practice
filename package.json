@@ -1,0 +1,22 @@
+{
+  "name": "code-practice",
+  "version": "0.1.0",
+  "description": "Practice source codes for Guan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guiguan/code-practice.git"
+  },
+  "author": "Guan Gui",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/guiguan/code-practice/issues"
+  },
+  "homepage": "https://github.com/guiguan/code-practice#readme",
+  "dependencies": {
+    "cytoscape": "^2.6.7"
+  }
+}
