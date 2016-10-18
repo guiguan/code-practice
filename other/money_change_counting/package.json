@@ -1,0 +1,27 @@
+{
+  "name": "money-change-counting",
+  "version": "0.1.0",
+  "description": "Count number of ways to make changes for a value",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/guiguan/code-practice"
+  },
+  "author": "Guan Gui",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.16.4"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-eslint": "^7.0.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "eslint": "^3.7.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^1.16.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.4.1"
+  }
+}
