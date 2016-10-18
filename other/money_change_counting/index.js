@@ -3,13 +3,15 @@
  * @Date:   2016-10-18T17:42:19+11:00
  * @Email:  root@guiguan.net
  * @Last modified by:   guiguan
- * @Last modified time: 2016-10-18T18:40:40+11:00
+ * @Last modified time: 2016-10-18T18:51:32+11:00
  */
 
 import _ from 'lodash';
 
 const store = {};
-const stats = {};
+const stats = {
+  totalCounts: 0
+};
 
 export function countChange(money, coins) {
   const [head,
@@ -20,11 +22,14 @@ export function countChange(money, coins) {
   if (head === undefined) {
     return 0;
   }
+  stats.totalCounts += 1;
   const storeKey = `${money}-${coins.toString()}`;
   const storeValue = store[storeKey];
   if (storeValue !== undefined) {
     const statCount = stats[storeKey];
-    stats[storeKey] = statCount ? statCount + 1 : 1;
+    stats[storeKey] = statCount
+      ? statCount + 1
+      : 1;
     return storeValue;
   }
   let count = 0;
@@ -36,6 +41,6 @@ export function countChange(money, coins) {
   return count;
 }
 
-console.log(countChange(100, [10, 5, 2, 1]));
+console.log(countChange(128, [10, 5, 2, 1]));
 
-console.log('Stats:\n\ttotal cache hits: %d\n\tcache:%j', _.keys(stats).length, stats);
+console.log('Stats:\n\ttotal cache hits: %d\n\tcache hit ratio: %d%%', _.keys(stats).length, ((_.keys(stats).length / stats.totalCounts) * 100).toFixed(2));
